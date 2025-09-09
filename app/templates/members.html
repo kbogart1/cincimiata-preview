@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Members</title>
+</head>
+<body>
+  <h1>Members</h1>
+  <ul>
+    {% for m in members %}
+      <li>{{ m.name }} ({{ m.email }})</li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('home') }}">Back</a>
+</body>
+</html>

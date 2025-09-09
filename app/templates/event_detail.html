@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ event.title }}</title>
+</head>
+<body>
+  <h1>{{ event.title }}</h1>
+  <p><strong>Date:</strong> {{ event.date }}</p>
+  <p><strong>Location:</strong> {{ event.location }}</p>
+  <p><strong>Description:</strong> {{ event.description }}</p>
+
+  <h2>Attendees</h2>
+  <ul>
+    {% for member in attendees %}
+      <li>
+        {{ member.name }} ({{ member.email }})
+        <a href="{{ url_for('cancel_rsvp', event_id=event.id, member_id=member.id) }}"
+           onclick="return confirm('Are you sure you want to cancel this RSVP for {{ member.name }}?');">
+           [Cancel]
+        </a>
+      </li>
+    {% else %}
+      <li>No RSVPs yet</li>
+    {% endfor %}
+  </ul>
+
+  <h2>RSVP</h2>
+  <ul>
+    {% for m in members %}
+      <li>
+        <a href="{{ url_for('rsvp', event_id=event.id, member_id=m.id) }}"
+           onclick="return confirm('Are you sure you want to RSVP as {{ m.name }}?');">
+           RSVP as {{ m.name }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <a href="{{ url_for('events') }}">Back to Events</a>
+</body>
+</html>

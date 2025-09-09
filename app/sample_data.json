@@ -1,0 +1,11 @@
+{
+  "members": [
+    {"username": "admin1", "role": "admin"},
+    {"username": "member1", "role": "member"},
+    {"username": "guest1", "role": "guest"}
+  ],
+  "events": [
+    {"id": 1, "name": "Autocross", "date": "2025-09-20"},
+    {"id": 2, "name": "Club Meetup", "date": "2025-09-27"}
+  ]
+}
