@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - main   # change if you use a different branch
-
+      - staging 
+      
 jobs:
   deploy:
     runs-on: ubuntu-latest
