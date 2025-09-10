@@ -1,9 +1,15 @@
 from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-import os
+from app.config import Config  # <-- new line
+
 from datetime import datetime
 
+import os
+
 app = Flask(__name__)
+app.config.from_object(Config)  # <-- use Config
+db = SQLAlchemy(app)
+
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "devsecret")
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///site.db"
 
