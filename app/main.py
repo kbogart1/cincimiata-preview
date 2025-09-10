@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__)
 app.config.from_object(Config)  # <-- use Config
-db = SQLAlchemy(app)
+
 
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY", "devsecret")
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///site.db"
