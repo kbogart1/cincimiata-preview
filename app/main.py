@@ -6,7 +6,8 @@ from datetime import datetime
 
 import os
 
-app = Flask(__name__)
+# <-- app = Flask(__name__)
+app = Flask(__name__.split('.')[0])
 app.config.from_object(Config)  # <-- use Config
 
 
